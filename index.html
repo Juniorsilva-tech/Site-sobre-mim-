@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maurício Júnior — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <canvas id="noise-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">MJ<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projetos</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+    <a href="mailto:mauriciojr0705@gmail.com" class="nav-cta">Contratar</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Disponível para projetos</div>
+      <h1 class="hero-name">
+        Maurício<br><span class="gradient-text">Júnior</span>
+      </h1>
+      <p class="hero-title">
+        Full Stack Developer &amp; <span class="typed-text" id="typed"></span>
+      </p>
+      <p class="hero-phrase">
+        "Código não é só lógica — é a ponte entre uma ideia e o mundo real."
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">Ver projetos →</a>
+        <a href="#contact" class="btn-secondary">Entrar em contato</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SOBRE -->
+  <section id="about">
+    <div class="section-label">// 01 — sobre</div>
+    <h2 class="section-title">Quem é <span>Maurício</span>?</h2>
+    <p class="section-desc">Desenvolvedor em ascensão, construindo soluções reais com as ferramentas certas.</p>
+
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-card-3d" id="card3d">
+          <div class="about-card-avatar">MJ</div>
+          <div class="about-card-name">Maurício Júnior</div>
+          <div class="about-card-role">Full Stack Developer</div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-num">1+</div>
+              <div class="about-stat-label">Anos aprendendo</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">5+</div>
+              <div class="about-stat-label">Projetos criados</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">∞</div>
+              <div class="about-stat-label">Linhas de código</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">100%</div>
+              <div class="about-stat-label">Dedicação</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text-col">
+        <p>Sou <strong>Maurício Júnior</strong>, desenvolvedor full stack em formação com foco em criar experiências web modernas e funcionais. Comecei do zero e já construí aplicações reais com HTML, CSS, JavaScript, Node.js e IA integrada.</p>
+        <p>Acredito que <strong>a melhor forma de aprender é construindo</strong>. Cada projeto é um laboratório onde transformo conceitos em código funcional — e o portfólio que você está vendo agora é prova disso.</p>
+        <p>Estou buscando minha <strong>primeira oportunidade profissional</strong> e aberto a freelas, projetos e colaborações. Se você quer alguém dedicado, curioso e que aprende rápido, vamos conversar.</p>
+        <a href="mailto:mauriciojr0705@gmail.com" class="btn-primary about-btn">Falar comigo →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">// 02 — habilidades</div>
+    <h2 class="section-title">Meu <span>arsenal</span> técnico</h2>
+    <p class="section-desc">Tecnologias que uso para construir do frontend ao backend.</p>
+
+    <div class="skills-container">
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Frontend</div>
+        <div class="skills-grid">
+          <div class="skill-pill"><span class="skill-icon">🌐</span><div class="skill-name">HTML5</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">🎨</span><div class="skill-name">CSS3</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">⚡</span><div class="skill-name">JavaScript</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">📱</span><div class="skill-name">Responsive</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Backend &amp; Ferramentas</div>
+        <div class="skills-grid">
+          <div class="skill-pill"><span class="skill-icon">🟢</span><div class="skill-name">Node.js</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">🚀</span><div class="skill-name">Express</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="65"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">🔗</span><div class="skill-name">REST APIs</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">🐙</span><div class="skill-name">Git/GitHub</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-title">Inteligência Artificial</div>
+        <div class="skills-grid">
+          <div class="skill-pill"><span class="skill-icon">🤖</span><div class="skill-name">API de IA</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">🧠</span><div class="skill-name">Groq SDK</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">💬</span><div class="skill-name">Chat AI</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div></div>
+          <div class="skill-pill"><span class="skill-icon">⚙️</span><div class="skill-name">Prompt Eng.</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- PROJETOS -->
+  <section id="projects">
+    <div class="section-label">// 03 — projetos</div>
+    <h2 class="section-title">O que já <span>construí</span></h2>
+    <p class="section-desc">Projetos reais que demonstram minha evolução como desenvolvedor.</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card project-spotlight">
+        <div class="project-spotlight-visual">
+          <div class="project-spotlight-icon">🤖</div>
+        </div>
+        <div class="project-spotlight-content">
+          <div class="project-spotlight-badge">Projeto Principal</div>
+          <div class="project-num">001</div>
+          <h3 class="project-title">Portfólio Inteligente com IA</h3>
+          <p class="project-desc">Aplicação full stack com chat interativo integrado à IA em tempo real. O usuário conversa diretamente com uma IA treinada sobre minha trajetória, habilidades e projetos. Backend em Node.js com integração Groq SDK.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">Groq SDK</span>
+          </div>
+          <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">Ver no GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">002</div>
+        <h3 class="project-title">Dashboard Analytics em Tempo Real</h3>
+        <p class="project-desc">Dashboard responsivo com gráficos dinâmicos, métricas em tempo real e design dark. Dados consumidos via API REST com atualização automática.</p>
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">REST API</span>
+        </div>
+        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">003</div>
+        <h3 class="project-title">App de Gerenciamento de Tarefas</h3>
+        <p class="project-desc">Aplicação fullstack com CRUD completo, autenticação simples e armazenamento persistente. Interface limpa com animações CSS e drag-and-drop.</p>
+        <div class="project-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">CSS Grid</span>
+        </div>
+        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">004</div>
+        <h3 class="project-title">Landing Page Responsiva</h3>
+        <p class="project-desc">Landing page de alto impacto com animações CSS avançadas, design responsivo e integração com formulário de contato via API.</p>
+        <div class="project-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">005</div>
+        <h3 class="project-title">API de Chatbot com Node.js</h3>
+        <p class="project-desc">Backend REST para chatbot inteligente, com rotas protegidas, integração com LLMs e histórico de conversas em memória.</p>
+        <div class="project-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">REST API</span>
+          <span class="tag">IA</span>
+        </div>
+        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTATO -->
+  <section id="contact">
+    <div class="section-label">// 04 — contato</div>
+    <h2 class="section-title">Vamos <span>trabalhar juntos</span>?</h2>
+    <p class="section-desc section-desc--center">Aberto a oportunidades, freelas e colaborações. Respondo rápido!</p>
+
+    <div class="contact-wrapper">
+      <div class="contact-card" id="contact-card">
+        <div class="contact-email">mauriciojr0705@gmail.com</div>
+        <div class="contact-links">
+          <a href="mailto:mauriciojr0705@gmail.com" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          <a href="https://wa.me/5524992625175" target="_blank" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.532 5.875L.057 23.887l6.188-1.625A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.369l-.359-.213-3.723.978.996-3.636-.234-.374A9.82 9.82 0 0 1 2.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://github.com/Juniorsilva-tech" target="_blank" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="contact-available">Disponível para oportunidades</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Maurício Júnior</span> — Desenvolvido com HTML, CSS &amp; JS puro · 2025
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
