@@ -1,238 +1,237 @@
-/* =============================================
-   MAURÍCIO JÚNIOR — PORTFOLIO
+/* ============================================
+   MAURÍCIO JÚNIOR — PORTFOLIO v2
    script.js
-   ============================================= */
+   ============================================ */
 
-/* =============================================
-   1. CURSOR MAGNÉTICO CUSTOMIZADO
-   ============================================= */
-const cursor     = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursor-ring');
+/* ============================================
+   1. CURSOR MAGNÉTICO
+   ============================================ */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
 
-let mouseX = 0, mouseY = 0;
-let ringX  = 0, ringY  = 0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+(function animCursor(){
+  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+  rx+=(mx-rx)*.11; ry+=(my-ry)*.11;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+})();
 
-function animateCursor() {
-  // Cursor principal: segue o mouse instantaneamente
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top  = mouseY + 'px';
+/* ============================================
+   2. PARTICLE CANVAS
+   ============================================ */
+const pc = document.getElementById('particle-canvas');
+const pctx = pc.getContext('2d');
+let particles = [];
 
-  // Anel externo: segue com delay (efeito elástico)
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
+function resizePC(){ pc.width=window.innerWidth; pc.height=window.innerHeight; }
+resizePC();
+window.addEventListener('resize',()=>{resizePC();initParticles();});
 
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
-
-/* =============================================
-   2. NOISE ORGÂNICO NO FUNDO (Canvas)
-   ============================================= */
-const noiseCanvas = document.getElementById('noise-canvas');
-const noiseCtx   = noiseCanvas.getContext('2d');
-
-function resizeNoise() {
-  noiseCanvas.width  = window.innerWidth;
-  noiseCanvas.height = window.innerHeight;
-}
-
-resizeNoise();
-window.addEventListener('resize', resizeNoise);
-
-function drawNoise() {
-  const imageData = noiseCtx.createImageData(noiseCanvas.width, noiseCanvas.height);
-  const data = imageData.data;
-
-  for (let i = 0; i < data.length; i += 4) {
-    const value = Math.random() * 255;
-    data[i]     = value; // R
-    data[i + 1] = value; // G
-    data[i + 2] = value; // B
-    data[i + 3] = 255;   // A
+function initParticles(){
+  particles=[];
+  const count = Math.floor(window.innerWidth/12);
+  for(let i=0;i<count;i++){
+    particles.push({
+      x:Math.random()*pc.width, y:Math.random()*pc.height,
+      vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+      r:Math.random()*1.5+.3,
+      a:Math.random()*.6+.1,
+    });
   }
-
-  noiseCtx.putImageData(imageData, 0, 0);
-
-  // Atualiza a cada 100ms para não pesar o CPU
-  setTimeout(() => requestAnimationFrame(drawNoise), 100);
 }
+initParticles();
 
-drawNoise();
-
-/* =============================================
-   3. NAVBAR — SCROLL + PROGRESS BAR
-   ============================================= */
-const navbar       = document.getElementById('navbar');
-const scrollProgress = document.getElementById('scroll-progress');
-
-window.addEventListener('scroll', () => {
-  const scrollTop  = window.scrollY;
-  const docHeight  = document.body.scrollHeight - window.innerHeight;
-  const percentage = (scrollTop / docHeight) * 100;
-
-  // Adiciona classe ao rolar
-  navbar.classList.toggle('scrolled', scrollTop > 50);
-
-  // Atualiza barra de progresso
-  scrollProgress.style.width = percentage + '%';
-});
-
-/* =============================================
-   4. EFEITO DE DIGITAÇÃO (Typed)
-   ============================================= */
-const typedElement = document.getElementById('typed');
-
-const words = [
-  'Integrador de IA',
-  'Builder de Produtos',
-  'Aprendiz Determinado',
-  'Criador de Experiências',
-];
-
-let wordIndex    = 0;
-let charIndex    = 0;
-let isDeleting   = false;
-
-function typeEffect() {
-  const currentWord = words[wordIndex];
-
-  if (!isDeleting) {
-    // Digitando
-    typedElement.textContent = currentWord.slice(0, ++charIndex);
-
-    if (charIndex === currentWord.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 1800); // pausa no final da palavra
-      return;
-    }
-  } else {
-    // Apagando
-    typedElement.textContent = currentWord.slice(0, --charIndex);
-
-    if (charIndex === 0) {
-      isDeleting = false;
-      wordIndex  = (wordIndex + 1) % words.length;
+function drawParticles(){
+  pctx.clearRect(0,0,pc.width,pc.height);
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0)p.x=pc.width; if(p.x>pc.width)p.x=0;
+    if(p.y<0)p.y=pc.height; if(p.y>pc.height)p.y=0;
+    pctx.beginPath();
+    pctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    pctx.fillStyle=`rgba(168,85,247,${p.a})`;
+    pctx.fill();
+  });
+  /* linhas entre partículas próximas */
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const dx=particles[i].x-particles[j].x;
+      const dy=particles[i].y-particles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<100){
+        pctx.beginPath();
+        pctx.moveTo(particles[i].x,particles[i].y);
+        pctx.lineTo(particles[j].x,particles[j].y);
+        pctx.strokeStyle=`rgba(124,58,237,${.15*(1-dist/100)})`;
+        pctx.lineWidth=.5;
+        pctx.stroke();
+      }
     }
   }
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
 
-  const speed = isDeleting ? 60 : 100;
-  setTimeout(typeEffect, speed);
+/* ============================================
+   3. NAVBAR + SCROLL PROGRESS
+   ============================================ */
+const navbar = document.getElementById('navbar');
+const sp     = document.getElementById('scroll-progress');
+
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  navbar.classList.toggle('scrolled',s>50);
+  sp.style.width=(s/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+});
+
+/* ============================================
+   4. MENU MOBILE
+   ============================================ */
+const toggle = document.getElementById('menuToggle');
+const mMenu  = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click',()=>{
+  mMenu.classList.toggle('open');
+  toggle.classList.toggle('active');
+});
+document.querySelectorAll('.mobile-link').forEach(l=>{
+  l.addEventListener('click',()=>{
+    mMenu.classList.remove('open');
+    toggle.classList.remove('active');
+  });
+});
+
+/* ============================================
+   5. TYPED ROLE EFFECT
+   ============================================ */
+const roles = ['sistemas full stack','agentes de IA','APIs robustas','experiências web','automações inteligentes'];
+const typedEl = document.getElementById('typed-role');
+let ri=0,ci=0,del=false;
+
+function typeRole(){
+  const w=roles[ri];
+  if(!del){ typedEl.textContent=w.slice(0,++ci);
+    if(ci===w.length){del=true;setTimeout(typeRole,2000);return;}
+  } else { typedEl.textContent=w.slice(0,--ci);
+    if(ci===0){del=false;ri=(ri+1)%roles.length;}
+  }
+  setTimeout(typeRole,del?55:95);
+}
+setTimeout(typeRole,1400);
+
+/* ============================================
+   6. CONTADORES ANIMADOS
+   ============================================ */
+function animateCounter(el){
+  const target=+el.dataset.target;
+  let current=0;
+  const step=target/50;
+  const timer=setInterval(()=>{
+    current=Math.min(current+step,target);
+    el.textContent=Math.round(current);
+    if(current>=target)clearInterval(timer);
+  },30);
 }
 
-// Inicia após a animação do hero
-setTimeout(typeEffect, 1500);
+/* ============================================
+   7. INTERSECTION OBSERVER — animações de entrada
+   ============================================ */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    el.classList.add('in-view');
 
-/* =============================================
-   5. CARD 3D — Rotação ao mouse
-   ============================================= */
-const card3d = document.getElementById('card3d');
+    /* barras skill */
+    el.querySelectorAll('.sk-bar').forEach(b=>{b.style.width=b.dataset.w+'%';});
 
-if (card3d) {
-  const cardWrapper = card3d.parentElement;
+    /* contadores */
+    el.querySelectorAll('.stat-num').forEach(animateCounter);
 
-  cardWrapper.addEventListener('mousemove', (e) => {
-    const rect   = card3d.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top  + rect.height / 2;
-
-    const rotateY =  ((e.clientX - centerX) / rect.width)  * 12;
-    const rotateX = -((e.clientY - centerY) / rect.height) * 12;
-
-    card3d.style.transform = `perspective(600px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    io.unobserve(el);
   });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 
-  cardWrapper.addEventListener('mouseleave', () => {
-    card3d.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg)';
-  });
-}
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.proj-card,.tl-item').forEach(el=>io.observe(el));
+document.querySelectorAll('#hero .hero-stats').forEach(el=>io.observe(el));
 
-/* =============================================
-   6. INTERSECTION OBSERVER — Animações de entrada
-   ============================================= */
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -50px 0px',
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-
-      // Anima as barras de skill quando entram na tela
-      entry.target.querySelectorAll('.skill-bar').forEach((bar) => {
-        bar.style.width = bar.dataset.width + '%';
-      });
+/* ============================================
+   8. SKILL TABS
+   ============================================ */
+document.querySelectorAll('.stab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    const id=tab.dataset.tab;
+    document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.skill-panel').forEach(p=>p.classList.remove('active'));
+    const panel=document.getElementById('panel-'+id);
+    if(panel){
+      panel.classList.add('active');
+      panel.querySelectorAll('.sk-bar').forEach(b=>{b.style.width='0';});
+      setTimeout(()=>panel.querySelectorAll('.sk-bar').forEach(b=>{b.style.width=b.dataset.w+'%';}),80);
     }
   });
-}, observerOptions);
-
-// Observa todos os elementos que precisam de animação de entrada
-const elementsToObserve = document.querySelectorAll(`
-  section,
-  .project-card,
-  .skill-category,
-  .contact-card,
-  .about-visual,
-  .about-text-col
-`);
-
-elementsToObserve.forEach((el) => observer.observe(el));
-
-/* =============================================
-   7. PROJECT CARDS — Delay escalonado
-   ============================================= */
-document.querySelectorAll('.project-card').forEach((card, index) => {
-  card.style.transitionDelay = (index * 0.1) + 's';
 });
 
-/* =============================================
-   8. PARALLAX NOS ORBS — Segue o mouse
-   ============================================= */
-const heroOrbs = document.querySelectorAll('.hero-orb');
-
-document.addEventListener('mousemove', (e) => {
-  const xPercent = (e.clientX / window.innerWidth)  - 0.5;
-  const yPercent = (e.clientY / window.innerHeight) - 0.5;
-
-  heroOrbs.forEach((orb, index) => {
-    const factor = (index + 1) * 15;
-    orb.style.transform = `translate(${xPercent * factor}px, ${yPercent * factor}px)`;
+/* ============================================
+   9. PARALLAX ORBS
+   ============================================ */
+const orbs = document.querySelectorAll('.hero-orb');
+document.addEventListener('mousemove',e=>{
+  const xp=(e.clientX/window.innerWidth-.5);
+  const yp=(e.clientY/window.innerHeight-.5);
+  orbs.forEach((o,i)=>{
+    const f=(i+1)*18;
+    o.style.transform=`translate(${xp*f}px,${yp*f}px)`;
   });
 });
 
-/* =============================================
-   9. SMOOTH SCROLL — Links da navegação
-   ============================================= */
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (e) => {
+/* ============================================
+   10. CARD 3D — SOBRE
+   ============================================ */
+const card3d = document.querySelector('.about-card');
+if(card3d){
+  const wrap=card3d.parentElement;
+  wrap.addEventListener('mousemove',e=>{
+    const r=card3d.getBoundingClientRect();
+    const rx2=((e.clientX-r.left-r.width/2)/r.width)*10;
+    const ry2=-((e.clientY-r.top-r.height/2)/r.height)*10;
+    card3d.style.transform=`perspective(500px) rotateY(${rx2}deg) rotateX(${ry2}deg)`;
+  });
+  wrap.addEventListener('mouseleave',()=>{card3d.style.transform='perspective(500px) rotateY(0) rotateX(0)';});
+}
+
+/* ============================================
+   11. SMOOTH SCROLL
+   ============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
     e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      const navHeight = 64;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){
+      const offset=t.getBoundingClientRect().top+window.scrollY-60;
+      window.scrollTo({top:offset,behavior:'smooth'});
     }
   });
 });
 
-/* =============================================
-   10. SKILL PILLS — Hover com brilho magnético
-   ============================================= */
-document.querySelectorAll('.skill-pill').forEach((pill) => {
-  pill.addEventListener('mousemove', (e) => {
-    const rect = pill.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width)  * 100;
-    const y = ((e.clientY - rect.top)  / rect.height) * 100;
-    pill.style.setProperty('--glow-x', x + '%');
-    pill.style.setProperty('--glow-y', y + '%');
-  });
-});
+/* ============================================
+   12. ATIVAR BARS DE SKILL DO PAINEL INICIAL
+   ============================================ */
+setTimeout(()=>{
+  document.querySelectorAll('#panel-fe .sk-bar').forEach(b=>{b.style.width=b.dataset.w+'%';});
+},800);
+
+/* ============================================
+   13. SAUDAÇÃO DINÂMICA
+   ============================================ */
+const hour=new Date().getHours();
+const gEl=document.querySelector('.greeting');
+if(gEl){
+  if(hour>=5&&hour<12)gEl.textContent='Bom dia! Eu sou';
+  else if(hour>=12&&hour<18)gEl.textContent='Boa tarde! Eu sou';
+  else gEl.textContent='Boa noite! Eu sou';
+}

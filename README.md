@@ -1,69 +1,53 @@
-# 🚀 Portfólio — Maurício Júnior
+# Maurício Júnior — Portfolio v2
 
-> Full Stack Developer | HTML · CSS · JavaScript · Node.js · IA
+> Full Stack Developer | HTML · CSS · JS · Node.js · Python · IA
 
-Portfolio pessoal com design dark futurista e animações avançadas.
-
----
-
-## ✨ Efeitos e Animações
-
-- **Cursor magnético** customizado com delay elástico
-- **Noise orgânico** gerado em canvas em tempo real
-- **Parallax** nos orbs de luz ao mover o mouse
-- **Grid futurista** no hero com máscara radial
-- **Typed effect** com múltiplos títulos rotativos
-- **Card 3D** com rotação real ao hover (perspectiva CSS)
-- **Barras de skill** animadas ao entrar na tela (IntersectionObserver)
-- **Scroll progress bar** no topo da página
-- **Animações cinematográficas** de entrada por seção
-- **Navbar morphing** ao scroll com blur/backdrop
+Portfolio profissional com design dark futurista, animações avançadas e foco em recrutadores nacionais e internacionais.
 
 ---
 
-## 📁 Estrutura
+## Seções
+
+- **Hero** — apresentação com typed effect, contadores animados e parallax
+- **Sobre** — card 3D, badges de disponibilidade e highlights
+- **Skills** — 4 categorias com abas: Frontend, Backend, IA & Automação, Ferramentas
+- **Projetos** — Jarvis (destaque) + 5 projetos em grid com animações
+- **Jornada** — timeline da evolução como dev
+- **Contato** — card de contato completo com email, WhatsApp e GitHub
+
+## Efeitos
+
+- Cursor magnético com lag elástico
+- Partículas conectadas em canvas
+- Orbs parallax ao mover o mouse
+- Typed effect nas roles
+- Card 3D com perspectiva real
+- Barras de skill animadas ao scroll
+- Contadores numéricos animados
+- Saudação dinâmica (bom dia/tarde/noite)
+- Menu mobile com transição suave
+- Scroll progress bar no topo
+
+## Estrutura
 
 ```
 portfolio/
-├── index.html   → Estrutura e conteúdo (HTML semântico)
-├── style.css    → Estilos, variáveis, animações e responsivo
-├── script.js    → Interatividade, cursor, noise, parallax, typed
-└── README.md    → Este arquivo
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 ```
 
----
+## Tecnologias
 
-## 🛠 Tecnologias
+HTML5 · CSS3 (variáveis, keyframes, grid, flexbox) · JavaScript puro
 
-- HTML5 semântico
-- CSS3 (variáveis, keyframes, grid, flexbox, backdrop-filter)
-- JavaScript puro (sem frameworks)
-- Google Fonts (Space Grotesk + Space Mono)
+## Deploy (GitHub Pages)
 
----
-
-## 🚀 Como usar
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/Juniorsilva-tech/portfolio.git
-```
-
-2. Abra o `index.html` no navegador — funciona 100% offline.
-
-3. Para publicar online, use o **GitHub Pages**:
-   - Vá em Settings → Pages
-   - Source: `main` branch → `/ (root)`
-   - Seu site ficará em: `https://juniorsilva-tech.github.io/portfolio`
+1. Suba os 4 arquivos no repositório
+2. Settings → Pages → Source: main → / (root)
+3. Site em: `https://juniorsilva-tech.github.io/portfolio`
 
 ---
 
-## 📬 Contato
-
-- **Email:** mauriciojr0705@gmail.com
-- **WhatsApp:** (24) 99262-5175
-- **GitHub:** [Juniorsilva-tech](https://github.com/Juniorsilva-tech)
-
----
-
-*Feito com dedicação por Maurício Júnior · 2025*
+**Maurício Júnior** · mauriciojr0705@gmail.com · (24) 99262-5175

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maurício Júnior — Full Stack Developer. JavaScript, Node.js, Python, IA. Disponível para projetos remotos e freelance.">
   <title>Maurício Júnior — Full Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,250 +15,424 @@
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
   <div class="scroll-progress" id="scroll-progress"></div>
-  <canvas id="noise-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">MJ<span>.</span></a>
+    <a href="#hero" class="nav-logo"><span class="bracket">&lt;</span>MJ<span class="bracket">/&gt;</span></a>
     <ul class="nav-links">
       <li><a href="#about">Sobre</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projetos</a></li>
+      <li><a href="#journey">Jornada</a></li>
       <li><a href="#contact">Contato</a></li>
     </ul>
-    <a href="mailto:mauriciojr0705@gmail.com" class="nav-cta">Contratar</a>
+    <div class="nav-right">
+      <div class="status-badge"><span class="status-dot"></span>Disponível</div>
+      <a href="mailto:mauriciojr0705@gmail.com" class="nav-cta">Contratar →</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
   </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">Sobre</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-link">Projetos</a></li>
+      <li><a href="#journey" class="mobile-link">Jornada</a></li>
+      <li><a href="#contact" class="mobile-link">Contato</a></li>
+    </ul>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
     <div class="hero-grid"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
     <div class="hero-content">
-      <div class="hero-tag">Disponível para projetos</div>
+      <div class="hero-top">
+        <div class="hero-tag"><span class="tag-dot"></span>Full Stack Developer</div>
+        <div class="hero-location">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Angra dos Reis, Brasil
+        </div>
+      </div>
       <h1 class="hero-name">
-        Maurício<br><span class="gradient-text">Júnior</span>
+        <span class="greeting">Olá, eu sou</span>
+        <span class="name-main">Maurício</span>
+        <span class="name-last gradient-text">Júnior</span>
       </h1>
-      <p class="hero-title">
-        Full Stack Developer &amp; <span class="typed-text" id="typed"></span>
-      </p>
-      <p class="hero-phrase">
-        "Código não é só lógica — é a ponte entre uma ideia e o mundo real."
+      <div class="hero-roles">
+        <span class="role-static">Eu construo </span>
+        <span class="role-typed" id="typed-role"></span><span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc">
+        Desenvolvedor de <strong>19 anos</strong> apaixonado por criar software que resolve problemas reais.
+        Full stack web, sistemas de IA e automação — do conceito ao deploy.
       </p>
       <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">Ver projetos →</a>
+        <a href="#projects" class="btn-primary">Ver projetos <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
         <a href="#contact" class="btn-secondary">Entrar em contato</a>
+        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="stat-num" data-target="5">0</div><div class="stat-suf">+</div><div class="stat-label">Projetos</div></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><div class="stat-num" data-target="3">0</div><div class="stat-suf">+</div><div class="stat-label">Clientes</div></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><div class="stat-num" data-target="14">0</div><div class="stat-suf">k+</div><div class="stat-label">Linhas</div></div>
       </div>
     </div>
-
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-    </div>
+    <div class="hero-scroll"><div class="mouse-icon"><div class="mouse-wheel"></div></div><span>scroll</span></div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- SOBRE -->
-  <section id="about">
-    <div class="section-label">// 01 — sobre</div>
-    <h2 class="section-title">Quem é <span>Maurício</span>?</h2>
-    <p class="section-desc">Desenvolvedor em ascensão, construindo soluções reais com as ferramentas certas.</p>
-
-    <div class="about-grid">
-      <div class="about-visual">
-        <div class="about-card-3d" id="card3d">
-          <div class="about-card-avatar">MJ</div>
-          <div class="about-card-name">Maurício Júnior</div>
-          <div class="about-card-role">Full Stack Developer</div>
-          <div class="about-stats">
-            <div class="about-stat">
-              <div class="about-stat-num">1+</div>
-              <div class="about-stat-label">Anos aprendendo</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num">5+</div>
-              <div class="about-stat-label">Projetos criados</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num">∞</div>
-              <div class="about-stat-label">Linhas de código</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num">100%</div>
-              <div class="about-stat-label">Dedicação</div>
-            </div>
+  <section id="about" class="sec">
+    <div class="container">
+      <div class="sec-header reveal">
+        <div class="sec-label">// 01 — sobre mim</div>
+        <h2 class="sec-title">Dev por paixão, <span>builder</span> por natureza</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal-left">
+          <div class="ac-avatar">MJ</div>
+          <div class="ac-name">Maurício Júnior</div>
+          <div class="ac-role">Full Stack Developer</div>
+          <div class="ac-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Angra dos Reis, RJ</div>
+          <div class="ac-badges">
+            <span class="badge green">Disponível</span>
+            <span class="badge purple">Remoto</span>
+            <span class="badge blue">Freelance</span>
+          </div>
+          <div class="ac-stats">
+            <div class="ac-stat"><div class="ac-stat-n">19</div><div class="ac-stat-l">Anos</div></div>
+            <div class="ac-stat"><div class="ac-stat-n">5+</div><div class="ac-stat-l">Projetos</div></div>
+            <div class="ac-stat"><div class="ac-stat-n">3+</div><div class="ac-stat-l">Clientes</div></div>
           </div>
         </div>
-      </div>
-
-      <div class="about-text-col">
-        <p>Sou <strong>Maurício Júnior</strong>, desenvolvedor full stack em formação com foco em criar experiências web modernas e funcionais. Comecei do zero e já construí aplicações reais com HTML, CSS, JavaScript, Node.js e IA integrada.</p>
-        <p>Acredito que <strong>a melhor forma de aprender é construindo</strong>. Cada projeto é um laboratório onde transformo conceitos em código funcional — e o portfólio que você está vendo agora é prova disso.</p>
-        <p>Estou buscando minha <strong>primeira oportunidade profissional</strong> e aberto a freelas, projetos e colaborações. Se você quer alguém dedicado, curioso e que aprende rápido, vamos conversar.</p>
-        <a href="mailto:mauriciojr0705@gmail.com" class="btn-primary about-btn">Falar comigo →</a>
+        <div class="about-text reveal-right">
+          <p>Comecei a programar por curiosidade e hoje é minha maior paixão. Com <strong>19 anos</strong>, já construí sistemas web completos para empresas reais e desenvolvi um <strong>sistema de IA multi-agente</strong> com mais de 14 mil linhas de código em Python.</p>
+          <p>Sou <strong>autodidata</strong> — aprendo na prática. Cada projeto é um laboratório onde transformo conceitos em código que funciona de verdade. Trabalho com full stack web, automação e integração com APIs de IA.</p>
+          <p>Busco minha <strong>primeira oportunidade profissional</strong>: CLT, PJ, freelance ou remoto internacional. Se quer um dev dedicado que entrega, vamos conversar.</p>
+          <div class="highlights">
+            <div class="hl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Clientes reais entregues</div>
+            <div class="hl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Arquiteturas complexas de IA</div>
+            <div class="hl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full stack web completo</div>
+            <div class="hl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Disponível para remoto global</div>
+          </div>
+          <div class="about-btns">
+            <a href="mailto:mauriciojr0705@gmail.com" class="btn-primary">Contratar agora →</a>
+            <a href="https://wa.me/5524992625175" target="_blank" class="btn-secondary">WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">// 02 — habilidades</div>
-    <h2 class="section-title">Meu <span>arsenal</span> técnico</h2>
-    <p class="section-desc">Tecnologias que uso para construir do frontend ao backend.</p>
-
-    <div class="skills-container">
-
-      <div class="skill-category">
-        <div class="skill-cat-title">Frontend</div>
-        <div class="skills-grid">
-          <div class="skill-pill"><span class="skill-icon">🌐</span><div class="skill-name">HTML5</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">🎨</span><div class="skill-name">CSS3</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">⚡</span><div class="skill-name">JavaScript</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">📱</span><div class="skill-name">Responsive</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div></div>
+  <section id="skills" class="sec dark-sec">
+    <div class="container">
+      <div class="sec-header reveal">
+        <div class="sec-label">// 02 — tecnologias</div>
+        <h2 class="sec-title">Meu <span>arsenal</span> técnico</h2>
+        <p class="sec-desc">Do frontend ao backend, da web à IA.</p>
+      </div>
+      <div class="skill-tabs reveal">
+        <button class="stab active" data-tab="fe">Frontend</button>
+        <button class="stab" data-tab="be">Backend</button>
+        <button class="stab" data-tab="ai">IA &amp; Auto</button>
+        <button class="stab" data-tab="tl">Ferramentas</button>
+      </div>
+      <div class="skill-panels">
+        <div class="skill-panel active" id="panel-fe">
+          <div class="sk-grid">
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#e34f2622,#e34f2655)"><span style="color:#e34f26;font-size:1.4rem;font-weight:700">H5</span></div><div class="sk-name">HTML5</div><div class="sk-bar-w"><div class="sk-bar" data-w="90"></div></div><div class="sk-lvl">90%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#1572b622,#1572b655)"><span style="color:#1572b6;font-size:1.4rem;font-weight:700">C3</span></div><div class="sk-name">CSS3</div><div class="sk-bar-w"><div class="sk-bar" data-w="85"></div></div><div class="sk-lvl">85%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#f7df1e22,#f7df1e55)"><span style="color:#b8a000;font-size:1.4rem;font-weight:700">JS</span></div><div class="sk-name">JavaScript</div><div class="sk-bar-w"><div class="sk-bar" data-w="80"></div></div><div class="sk-lvl">80%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#61dafb22,#61dafb55)"><span style="color:#087ea4;font-size:1.4rem;font-weight:700">Re</span></div><div class="sk-name">React</div><div class="sk-bar-w"><div class="sk-bar" data-w="65"></div></div><div class="sk-lvl">65%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#7c3aed22,#7c3aed55)"><span style="color:#7c3aed;font-size:1.3rem;font-weight:700">AN</span></div><div class="sk-name">Animação</div><div class="sk-bar-w"><div class="sk-bar" data-w="88"></div></div><div class="sk-lvl">88%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#06b6d422,#06b6d455)"><span style="color:#06b6d4;font-size:1.1rem;font-weight:700">RWD</span></div><div class="sk-name">Responsive</div><div class="sk-bar-w"><div class="sk-bar" data-w="90"></div></div><div class="sk-lvl">90%</div></div>
+          </div>
+        </div>
+        <div class="skill-panel" id="panel-be">
+          <div class="sk-grid">
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#33993322,#33993355)"><span style="color:#339933;font-size:1.3rem;font-weight:700">ND</span></div><div class="sk-name">Node.js</div><div class="sk-bar-w"><div class="sk-bar" data-w="75"></div></div><div class="sk-lvl">75%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#00000022,#00000055)"><span style="color:#888;font-size:1.3rem;font-weight:700">EX</span></div><div class="sk-name">Express</div><div class="sk-bar-w"><div class="sk-bar" data-w="72"></div></div><div class="sk-lvl">72%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#3776ab22,#3776ab55)"><span style="color:#3776ab;font-size:1.3rem;font-weight:700">PY</span></div><div class="sk-name">Python</div><div class="sk-bar-w"><div class="sk-bar" data-w="72"></div></div><div class="sk-lvl">72%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#47a24822,#47a24855)"><span style="color:#47a248;font-size:1.1rem;font-weight:700">MDB</span></div><div class="sk-name">MongoDB</div><div class="sk-bar-w"><div class="sk-bar" data-w="68"></div></div><div class="sk-lvl">68%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#f59e0b22,#f59e0b55)"><span style="color:#f59e0b;font-size:1.2rem;font-weight:700">JWT</span></div><div class="sk-name">Auth / JWT</div><div class="sk-bar-w"><div class="sk-bar" data-w="74"></div></div><div class="sk-lvl">74%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#ec489922,#ec489955)"><span style="color:#ec4899;font-size:1.1rem;font-weight:700">API</span></div><div class="sk-name">REST APIs</div><div class="sk-bar-w"><div class="sk-bar" data-w="78"></div></div><div class="sk-lvl">78%</div></div>
+          </div>
+        </div>
+        <div class="skill-panel" id="panel-ai">
+          <div class="sk-grid">
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#7c3aed22,#7c3aed55)"><span style="color:#a855f7;font-size:1rem;font-weight:700">GROQ</span></div><div class="sk-name">Groq SDK</div><div class="sk-bar-w"><div class="sk-bar" data-w="80"></div></div><div class="sk-lvl">80%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#06b6d422,#06b6d455)"><span style="color:#06b6d4;font-size:0.9rem;font-weight:700">AGENT</span></div><div class="sk-name">Multi-Agent</div><div class="sk-bar-w"><div class="sk-bar" data-w="75"></div></div><div class="sk-lvl">75%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#10b98122,#10b98155)"><span style="color:#10b981;font-size:0.9rem;font-weight:700">AUTO</span></div><div class="sk-name">Automação Web</div><div class="sk-bar-w"><div class="sk-bar" data-w="82"></div></div><div class="sk-lvl">82%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#f59e0b22,#f59e0b55)"><span style="color:#f59e0b;font-size:0.9rem;font-weight:700">PRMPT</span></div><div class="sk-name">Prompt Eng.</div><div class="sk-bar-w"><div class="sk-bar" data-w="84"></div></div><div class="sk-lvl">84%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#ef444422,#ef444455)"><span style="color:#ef4444;font-size:0.9rem;font-weight:700">SCRP</span></div><div class="sk-name">Web Scraping</div><div class="sk-bar-w"><div class="sk-bar" data-w="78"></div></div><div class="sk-lvl">78%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#8b5cf622,#8b5cf655)"><span style="color:#8b5cf6;font-size:0.85rem;font-weight:700">ORCH</span></div><div class="sk-name">Orquestração</div><div class="sk-bar-w"><div class="sk-bar" data-w="73"></div></div><div class="sk-lvl">73%</div></div>
+          </div>
+        </div>
+        <div class="skill-panel" id="panel-tl">
+          <div class="sk-grid">
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#f0503222,#f0503255)"><span style="color:#f05032;font-size:1.2rem;font-weight:700">GIT</span></div><div class="sk-name">Git / GitHub</div><div class="sk-bar-w"><div class="sk-bar" data-w="82"></div></div><div class="sk-lvl">82%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#00000022,#00000055)"><span style="color:#aaa;font-size:1rem;font-weight:700">NEXT</span></div><div class="sk-name">Next.js</div><div class="sk-bar-w"><div class="sk-bar" data-w="55"></div></div><div class="sk-lvl">55%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#2496ed22,#2496ed55)"><span style="color:#2496ed;font-size:0.9rem;font-weight:700">DOCK</span></div><div class="sk-name">Docker</div><div class="sk-bar-w"><div class="sk-bar" data-w="50"></div></div><div class="sk-lvl">50%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#33333322,#33333355)"><span style="color:#999;font-size:0.85rem;font-weight:700">VERCEL</span></div><div class="sk-name">Vercel / Deploy</div><div class="sk-bar-w"><div class="sk-bar" data-w="80"></div></div><div class="sk-lvl">80%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#06b6d422,#06b6d455)"><span style="color:#06b6d4;font-size:0.85rem;font-weight:700">VSCODE</span></div><div class="sk-name">VS Code</div><div class="sk-bar-w"><div class="sk-bar" data-w="92"></div></div><div class="sk-lvl">92%</div></div>
+            <div class="sk-card"><div class="sk-icon" style="background:linear-gradient(135deg,#f59e0b22,#f59e0b55)"><span style="color:#f59e0b;font-size:0.85rem;font-weight:700">POSTM</span></div><div class="sk-name">Postman</div><div class="sk-bar-w"><div class="sk-bar" data-w="75"></div></div><div class="sk-lvl">75%</div></div>
+          </div>
         </div>
       </div>
-
-      <div class="skill-category">
-        <div class="skill-cat-title">Backend &amp; Ferramentas</div>
-        <div class="skills-grid">
-          <div class="skill-pill"><span class="skill-icon">🟢</span><div class="skill-name">Node.js</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">🚀</span><div class="skill-name">Express</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="65"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">🔗</span><div class="skill-name">REST APIs</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">🐙</span><div class="skill-name">Git/GitHub</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <div class="skill-cat-title">Inteligência Artificial</div>
-        <div class="skills-grid">
-          <div class="skill-pill"><span class="skill-icon">🤖</span><div class="skill-name">API de IA</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">🧠</span><div class="skill-name">Groq SDK</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">💬</span><div class="skill-name">Chat AI</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div></div>
-          <div class="skill-pill"><span class="skill-icon">⚙️</span><div class="skill-name">Prompt Eng.</div><div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div></div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- PROJETOS -->
-  <section id="projects">
-    <div class="section-label">// 03 — projetos</div>
-    <h2 class="section-title">O que já <span>construí</span></h2>
-    <p class="section-desc">Projetos reais que demonstram minha evolução como desenvolvedor.</p>
+  <section id="projects" class="sec">
+    <div class="container">
+      <div class="sec-header reveal">
+        <div class="sec-label">// 03 — projetos</div>
+        <h2 class="sec-title">O que eu <span>construí</span></h2>
+        <p class="sec-desc">De sistemas de IA a sites para empresas — projetos reais, código real.</p>
+      </div>
 
-    <div class="projects-grid">
-
-      <div class="project-card project-spotlight">
-        <div class="project-spotlight-visual">
-          <div class="project-spotlight-icon">🤖</div>
-        </div>
-        <div class="project-spotlight-content">
-          <div class="project-spotlight-badge">Projeto Principal</div>
-          <div class="project-num">001</div>
-          <h3 class="project-title">Portfólio Inteligente com IA</h3>
-          <p class="project-desc">Aplicação full stack com chat interativo integrado à IA em tempo real. O usuário conversa diretamente com uma IA treinada sobre minha trajetória, habilidades e projetos. Backend em Node.js com integração Groq SDK.</p>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">Groq SDK</span>
+      <!-- JARVIS DESTAQUE -->
+      <div class="proj-featured reveal">
+        <div class="pf-visual">
+          <div class="pf-grid-bg"></div>
+          <div class="pf-rings">
+            <div class="pf-ring r1"></div>
+            <div class="pf-ring r2"></div>
+            <div class="pf-ring r3"></div>
           </div>
-          <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">Ver no GitHub →</a>
+          <div class="pf-core-node">AI</div>
+          <div class="pf-satellite" style="top:12%;left:20%">Chat</div>
+          <div class="pf-satellite" style="top:20%;right:15%">Browser</div>
+          <div class="pf-satellite" style="bottom:22%;left:12%">Code</div>
+          <div class="pf-satellite" style="bottom:14%;right:20%">Memory</div>
+          <div class="pf-satellite" style="top:52%;left:4%">Learn</div>
+          <div class="pf-badge-flagship">Projeto Flagship</div>
+        </div>
+        <div class="pf-content">
+          <div class="proj-num">001</div>
+          <h3 class="pf-title">Jarvis — Sistema de IA Multi-Agente</h3>
+          <p class="pf-desc">Sistema autônomo baseado em agentes especializados. Cada agente executa uma função específica — navegação web, geração de código, memória persistente e aprendizado automático — coordenados por um orquestrador central que interpreta intenções do usuário em linguagem natural.</p>
+          <div class="pf-metrics">
+            <div class="pm"><span class="pm-n">14k+</span><span class="pm-l">linhas de código</span></div>
+            <div class="pm"><span class="pm-n">8+</span><span class="pm-l">agentes criados</span></div>
+            <div class="pm"><span class="pm-n">100%</span><span class="pm-l">Python puro</span></div>
+          </div>
+          <div class="proj-tags">
+            <span class="tag t-purple">Python</span>
+            <span class="tag t-blue">Multi-Agent</span>
+            <span class="tag t-cyan">AI Orchestration</span>
+            <span class="tag t-gray">Web Scraping</span>
+            <span class="tag t-gray">Automação</span>
+          </div>
+          <a href="https://github.com/Juniorsilva-tech" target="_blank" class="btn-primary" style="display:inline-flex;margin-top:1.5rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            Ver no GitHub
+          </a>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">002</div>
-        <h3 class="project-title">Dashboard Analytics em Tempo Real</h3>
-        <p class="project-desc">Dashboard responsivo com gráficos dinâmicos, métricas em tempo real e design dark. Dados consumidos via API REST com atualização automática.</p>
-        <div class="project-tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">Chart.js</span>
-          <span class="tag">REST API</span>
+      <!-- GRID PROJETOS -->
+      <div class="proj-grid">
+        <div class="proj-card reveal" style="--d:0s">
+          <div class="pc-top">
+            <div class="pc-icon" style="--c1:#7c3aed22;--c2:#7c3aed44"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <span class="pc-num">002</span>
+          </div>
+          <h3 class="pc-title">Portfólio com IA</h3>
+          <p class="pc-desc">Site full stack com chat de IA em tempo real. Visitante conversa com agente treinado sobre minha trajetória.</p>
+          <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Node.js</span><span class="tag">Groq</span></div>
+          <div class="pc-footer"><a href="https://github.com/Juniorsilva-tech" target="_blank" class="pc-link">GitHub →</a><span class="pc-type">Full Stack</span></div>
         </div>
-        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">003</div>
-        <h3 class="project-title">App de Gerenciamento de Tarefas</h3>
-        <p class="project-desc">Aplicação fullstack com CRUD completo, autenticação simples e armazenamento persistente. Interface limpa com animações CSS e drag-and-drop.</p>
-        <div class="project-tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">CSS Grid</span>
+        <div class="proj-card reveal" style="--d:0.1s">
+          <div class="pc-top">
+            <div class="pc-icon" style="--c1:#06b6d422;--c2:#06b6d444"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <span class="pc-num">003</span>
+          </div>
+          <h3 class="pc-title">Dashboard Analytics</h3>
+          <p class="pc-desc">Dashboard com gráficos dinâmicos, métricas em tempo real, autenticação JWT e dados via API REST.</p>
+          <div class="proj-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Chart.js</span></div>
+          <div class="pc-footer"><a href="https://github.com/Juniorsilva-tech" target="_blank" class="pc-link">GitHub →</a><span class="pc-type">SaaS</span></div>
         </div>
-        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">004</div>
-        <h3 class="project-title">Landing Page Responsiva</h3>
-        <p class="project-desc">Landing page de alto impacto com animações CSS avançadas, design responsivo e integração com formulário de contato via API.</p>
-        <div class="project-tags">
-          <span class="tag">HTML5</span>
-          <span class="tag">CSS3</span>
-          <span class="tag">JavaScript</span>
+        <div class="proj-card reveal" style="--d:0.2s">
+          <div class="pc-top">
+            <div class="pc-icon" style="--c1:#10b98122;--c2:#10b98144"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <span class="pc-num">004</span>
+          </div>
+          <h3 class="pc-title">Sites para Empresas</h3>
+          <p class="pc-desc">Sites profissionais para microempresas em Angra dos Reis. Responsivos, com SEO e formulário de contato.</p>
+          <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">Node.js</span></div>
+          <div class="pc-footer"><a href="https://github.com/Juniorsilva-tech" target="_blank" class="pc-link">GitHub →</a><span class="pc-type">Freelance</span></div>
         </div>
-        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-num">005</div>
-        <h3 class="project-title">API de Chatbot com Node.js</h3>
-        <p class="project-desc">Backend REST para chatbot inteligente, com rotas protegidas, integração com LLMs e histórico de conversas em memória.</p>
-        <div class="project-tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">REST API</span>
-          <span class="tag">IA</span>
+        <div class="proj-card reveal" style="--d:0.3s">
+          <div class="pc-top">
+            <div class="pc-icon" style="--c1:#f59e0b22;--c2:#f59e0b44"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="pc-num">005</span>
+          </div>
+          <h3 class="pc-title">API REST + Auth</h3>
+          <p class="pc-desc">API completa com JWT, CRUD, middleware de autenticação e validação. Pronta para qualquer frontend.</p>
+          <div class="proj-tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">JWT</span><span class="tag">MongoDB</span></div>
+          <div class="pc-footer"><a href="https://github.com/Juniorsilva-tech" target="_blank" class="pc-link">GitHub →</a><span class="pc-type">Backend</span></div>
         </div>
-        <a href="https://github.com/Juniorsilva-tech" target="_blank" class="project-link">GitHub →</a>
+        <div class="proj-card reveal" style="--d:0.4s">
+          <div class="pc-top">
+            <div class="pc-icon" style="--c1:#ec489922;--c2:#ec489944"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <span class="pc-num">006</span>
+          </div>
+          <h3 class="pc-title">Sistema de Agendamento</h3>
+          <p class="pc-desc">SaaS para gestão de agendamentos — clientes, calendário, painel admin e notificações automáticas.</p>
+          <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Auth</span></div>
+          <div class="pc-footer"><a href="https://github.com/Juniorsilva-tech" target="_blank" class="pc-link">GitHub →</a><span class="pc-type">SaaS</span></div>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
+
+  <!-- JORNADA -->
+  <section id="journey" class="sec dark-sec">
+    <div class="container">
+      <div class="sec-header reveal">
+        <div class="sec-label">// 04 — jornada</div>
+        <h2 class="sec-title">Minha <span>evolução</span></h2>
+        <p class="sec-desc">Do zero ao full stack com IA em menos de 2 anos.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal-left">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2023 — início</div>
+            <h3 class="tl-title">Primeiros passos</h3>
+            <p class="tl-desc">HTML, CSS e descoberta da programação como paixão. Primeiros projetos simples e muita curiosidade sobre como a web funciona por dentro.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-right">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2023 — mid</div>
+            <h3 class="tl-title">JavaScript e backend</h3>
+            <p class="tl-desc">Aprofundamento em JavaScript, Node.js e Express. Primeiras APIs REST e integração com banco de dados MongoDB.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-left">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2024</div>
+            <h3 class="tl-title">Primeiros clientes reais</h3>
+            <p class="tl-desc">Entrega de sites e sistemas para microempresas em Angra dos Reis. Aprendizado sobre deadline, requisitos de cliente e deploy em produção real.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-right">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2024 — mid</div>
+            <h3 class="tl-title">Mergulho em IA e Python</h3>
+            <p class="tl-desc">Python avançado, APIs de IA e automação. Desenvolvimento do Jarvis — sistema multi-agente com 14k+ linhas. Arquitetura, orquestração e agentes especializados.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal-left">
+          <div class="tl-dot active-dot"></div>
+          <div class="tl-card active-card">
+            <div class="tl-date">2025 — agora</div>
+            <h3 class="tl-title">Buscando a primeira oportunidade</h3>
+            <p class="tl-desc">Com portfólio sólido, experiência real e projetos complexos, em busca da primeira vaga profissional. Disponível para CLT, PJ, remoto e freelance internacional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <!-- CONTATO -->
-  <section id="contact">
-    <div class="section-label">// 04 — contato</div>
-    <h2 class="section-title">Vamos <span>trabalhar juntos</span>?</h2>
-    <p class="section-desc section-desc--center">Aberto a oportunidades, freelas e colaborações. Respondo rápido!</p>
-
-    <div class="contact-wrapper">
-      <div class="contact-card" id="contact-card">
-        <div class="contact-email">mauriciojr0705@gmail.com</div>
-        <div class="contact-links">
-          <a href="mailto:mauriciojr0705@gmail.com" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Email
-          </a>
-          <a href="https://wa.me/5524992625175" target="_blank" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.532 5.875L.057 23.887l6.188-1.625A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.369l-.359-.213-3.723.978.996-3.636-.234-.374A9.82 9.82 0 0 1 2.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/></svg>
-            WhatsApp
-          </a>
-          <a href="https://github.com/Juniorsilva-tech" target="_blank" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
+  <section id="contact" class="sec contact-sec">
+    <div class="container">
+      <div class="sec-header reveal" style="text-align:center">
+        <div class="sec-label" style="justify-content:center">// 05 — contato</div>
+        <h2 class="sec-title">Vamos <span>trabalhar juntos</span>?</h2>
+        <p class="sec-desc" style="margin:0 auto">Respondo em menos de 24h. Disponível para qualquer modelo de contratação.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-main reveal-left">
+          <div class="contact-big-card">
+            <div class="cbc-header">
+              <div class="cbc-avatar">MJ</div>
+              <div class="cbc-info"><div class="cbc-name">Maurício Júnior</div><div class="cbc-role">Full Stack Developer</div></div>
+              <div class="cbc-pill"><span class="status-dot"></span>Disponível</div>
+            </div>
+            <div class="contact-items">
+              <a href="mailto:mauriciojr0705@gmail.com" class="ci">
+                <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                <div class="ci-text"><div class="ci-label">Email</div><div class="ci-value">mauriciojr0705@gmail.com</div></div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="https://wa.me/5524992625175" target="_blank" class="ci">
+                <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.532 5.875L.057 23.887l6.188-1.625A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.369l-.359-.213-3.723.978.996-3.636-.234-.374A9.82 9.82 0 0 1 2.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/></svg></div>
+                <div class="ci-text"><div class="ci-label">WhatsApp</div><div class="ci-value">(24) 99262-5175</div></div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="https://github.com/Juniorsilva-tech" target="_blank" class="ci">
+                <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+                <div class="ci-text"><div class="ci-label">GitHub</div><div class="ci-value">Juniorsilva-tech</div></div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+            <a href="mailto:mauriciojr0705@gmail.com" class="btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem">Enviar mensagem →</a>
+          </div>
         </div>
-        <div class="contact-available">Disponível para oportunidades</div>
+        <div class="contact-side reveal-right">
+          <div class="cs-card">
+            <div class="cs-icon">💼</div>
+            <h3>Aberto para</h3>
+            <ul class="cs-list">
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Emprego CLT no Brasil</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contrato PJ</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Remoto Internacional</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Freelance / Projetos</li>
+            </ul>
+          </div>
+          <div class="cs-card">
+            <div class="cs-icon">⚡</div>
+            <h3>Resposta rápida</h3>
+            <div class="rt"><span class="rt-n">&lt;24h</span><span class="rt-l">Tempo médio de retorno</span></div>
+            <p style="color:var(--muted);font-size:0.85rem;margin-top:0.75rem">Prefere WhatsApp? Resposta ainda mais rápida.</p>
+          </div>
+          <div class="cs-card" style="background:linear-gradient(135deg,var(--purple-glow),var(--cyan-glow))">
+            <div class="cs-icon">🌎</div>
+            <h3>Disponível globalmente</h3>
+            <p style="color:var(--muted);font-size:0.9rem;margin-top:0.5rem">Trabalho em qualquer fuso horário e aceito pagamentos internacionais.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>Maurício Júnior</span> — Desenvolvido com HTML, CSS &amp; JS puro · 2025
+    <div class="footer-in">
+      <a href="#hero" class="footer-logo"><span class="bracket">&lt;</span>MJ<span class="bracket">/&gt;</span></a>
+      <p class="footer-copy">Feito com dedicação por <span>Maurício Júnior</span> · 2025</p>
+      <div class="footer-links">
+        <a href="https://github.com/Juniorsilva-tech" target="_blank">GitHub</a>
+        <a href="mailto:mauriciojr0705@gmail.com">Email</a>
+        <a href="https://wa.me/5524992625175" target="_blank">WhatsApp</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
