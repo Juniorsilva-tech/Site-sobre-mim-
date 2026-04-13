@@ -1,4 +1,4 @@
-# Maurício Júnior — Portfolio v2
+# Maurício Júnior — Portfólio
 
 > Full Stack Developer | HTML · CSS · JS · Node.js · Python · IA
 
