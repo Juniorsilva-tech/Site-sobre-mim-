@@ -46,7 +46,7 @@ HTML5 · CSS3 (variáveis, keyframes, grid, flexbox) · JavaScript puro
 
 1. Suba os 4 arquivos no repositório
 2. Settings → Pages → Source: main → / (root)
-3. Site em: `https://juniorsilva-tech.github.io/portfolio`
+
 
 ---
 
