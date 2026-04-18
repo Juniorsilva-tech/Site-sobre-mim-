@@ -2,7 +2,7 @@
 
 > Full Stack Developer | HTML · CSS · JS · Node.js · Python · IA
 
-Portfolio profissional com design dark futurista, animações avançadas e foco em recrutadores nacionais e internacionais.
+Portfolio profissional com design dark futurista, animações avançadas
 
 ---
 
